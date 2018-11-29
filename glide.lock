@@ -1,0 +1,8 @@
+hash: 347a100894cabd352ce188b2a71ebdea40609adcbf4e088a0b35b514cc5ee2d6
+updated: 2018-11-29T18:57:15.630509+09:00
+imports:
+- name: github.com/algoGuy/EasyMIDI
+  version: 708ca39e739917db1cf758f7acdc681ae8174096
+- name: gopkg.in/urfave/cli.v1
+  version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
+testImports: []
