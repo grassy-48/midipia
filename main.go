@@ -1,6 +1,7 @@
 package main
 
 import (
+	"midipia/actions/input"
 	"midipia/actions/sample/create"
 	"midipia/actions/sample/read"
 	"os"
@@ -21,6 +22,11 @@ func main() {
 	app.Compiled = time.Now()
 
 	app.Commands = []cli.Command{
+		{
+			Name:   "input-score",
+			Usage:  "標準入力を受け付ける",
+			Action: input.Input,
+		},
 		{
 			Name:   "sample-read",
 			Usage:  "midiを読み込む(sample)",
