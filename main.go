@@ -26,16 +26,34 @@ func main() {
 			Name:   "input-score",
 			Usage:  "標準入力を受け付ける",
 			Action: input.Input,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "output, o",
+					Usage: "出力するファイル名",
+				},
+			},
 		},
 		{
 			Name:   "sample-read",
 			Usage:  "midiを読み込む(sample)",
 			Action: read.Read,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "file, f",
+					Usage: "入力するファイル名",
+				},
+			},
 		},
 		{
 			Name:   "sample-create",
 			Usage:  "midiを書き出す(sample)",
 			Action: create.Create,
+			Flags: []cli.Flag{
+				cli.StringFlag{
+					Name:  "output, o",
+					Usage: "出力するファイル名",
+				},
+			},
 		},
 	}
 	app.Run(os.Args)

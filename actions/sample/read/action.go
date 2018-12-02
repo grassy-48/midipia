@@ -9,10 +9,16 @@ import (
 	cli "gopkg.in/urfave/cli.v1"
 )
 
+const defaultFileName = "onkai"
+
 // Read midi file
 func Read(c *cli.Context) error {
+	fname := c.String("file")
+	if fname == "" {
+		fname = defaultFileName
+	}
 	// Open test midi file
-	file, _ := os.Open("data/outputMidi.mid")
+	file, _ := os.Open(fmt.Sprintf("data/%s.mid", fname))
 	defer file.Close()
 
 	// Read and save midi to smf.MIDIFile struct

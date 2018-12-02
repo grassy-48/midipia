@@ -2,6 +2,7 @@ package create
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 
 	"github.com/algoGuy/EasyMIDI/smf"
@@ -9,8 +10,15 @@ import (
 	cli "gopkg.in/urfave/cli.v1"
 )
 
+const defaultFileName = "sample_output"
+
 // Create midi file
 func Create(c *cli.Context) error {
+	file := c.String("output")
+	if file == "" {
+		file = defaultFileName
+	}
+
 	// Create division
 	division, err := smf.NewDivision(960, smf.NOSMTPE)
 	if err != nil {
@@ -60,7 +68,7 @@ func Create(c *cli.Context) error {
 	}
 
 	// Save to new midi source file
-	outputMidi, err := os.Create("data/outputMidi.mid")
+	outputMidi, err := os.Create(fmt.Sprintf("data/%s.mid", file))
 	if err != nil {
 		return err
 	}
