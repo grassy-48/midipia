@@ -11,6 +11,8 @@ import (
 
 const defaultFileName = "onkai"
 
+// algoGuy/EasyMID: Example 1
+// https://github.com/algoGuy/EasyMIDI#example-1-read-and-get-data-from-midi-file
 // Read midi file
 func Read(c *cli.Context) error {
 	fname := c.String("file")

@@ -20,7 +20,7 @@ const (
 	defaultFileName = "output"
 )
 
-// Input push keyboard
+// Input Keys or Get Strings convert MIDI
 func Input(c *cli.Context) error {
 	file := c.String("output")
 	if file == "" {
@@ -35,12 +35,13 @@ func Input(c *cli.Context) error {
 		str = scanner.Text()
 	} else {
 		// get pipe score
-		// ex: echo "aagghhg ffddssa" | go run main.go input-score
+		// ex: echo "aagghhg ffddssa ggffdds ggffdds aagghhg ffddssa " | go run main.go input-score -o=star
 		stby, _ := ioutil.ReadAll(os.Stdin)
 		str = string(stby)
 	}
 	fmt.Printf("input: %s", str)
 
+  // mapping tone
 	var score []uint8
 	for _, t := range str {
 		score = append(score, tonemap.Tone(fmt.Sprintf("%c", t)))
