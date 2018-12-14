@@ -12,6 +12,8 @@ import (
 
 const defaultFileName = "sample_output"
 
+// algoGuy/EasyMID:Example 2
+// https://github.com/algoGuy/EasyMIDI#example-2-create-and-write-one-midi-track-into-new-midi-filee
 // Create midi file
 func Create(c *cli.Context) error {
 	file := c.String("output")
